@@ -25,3 +25,8 @@ void resetM6502(void);
 void setSpeed(int freq, int synchroMillis);
 void setIRQ(int state);
 void setNMI(void);
+unsigned short getPC(void);
+unsigned char getA(void);
+unsigned char getX(void);
+unsigned char getY(void);
+unsigned char getS(void);

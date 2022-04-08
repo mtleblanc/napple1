@@ -53,6 +53,31 @@ static int sync_cycles; /* cycles per 1 sync */
 static int sync_interval; /* sync interval time in m sec */
 static long long interval_start; /* interval start time in m sec from 0 time */
 
+unsigned short getPC(void)
+{
+	return programCounter;
+}
+
+unsigned char getA(void)
+{
+	return accumulator;
+}
+
+unsigned char getX(void)
+{
+	return xRegister;
+}
+
+unsigned char getY(void)
+{
+	return yRegister;
+}
+
+unsigned char getS(void)
+{
+	return stackPointer;
+}
+
 static unsigned short memReadAbsolute(unsigned short adr)
 {
 	return (memRead(adr) | memRead((unsigned short)(adr + 1)) << 8);

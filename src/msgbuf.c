@@ -25,7 +25,7 @@
  */
 #include <ncurses.h>
 #include <string.h>
-
+#include "m6502.h"
 #include "screen.h"
 #include "msgbuf.h"
 #include "memory.h"
@@ -36,10 +36,12 @@ void print_msgbuf(char *s)
 {
 	char msg[MSG_LEN_MAX + 1]; 
 
-	if ((int)strlen(s) < 1)
+	int t;
+
+	if ((t = (int)strlen(s)) < 1)
 		sprintf(msg, 
-			"Basic Dump Load Reset Hard Quit Mode %2dK",
-			memMode());
+			"A%02x X%02x Y%02x S%02x M%2d P%04x",
+			getA(), getX(), getY(), getS(),memMode(), getPC());
 	else
 		sprintf(msg, 
 			"%-40s", 

@@ -24,6 +24,7 @@
 #include "memory.h"
 #include "keyboard.h"
 #include "screen.h"
+#include "msgbuf.h"
 
 int handleInput(void)
 {
@@ -74,6 +75,7 @@ int handleInput(void)
 
 	writeKbd((unsigned char)(tmp + 0x80));
 	writeKbdCr(0xA7); 
+	print_msgbuf("");
 
 	return 1;
 }
